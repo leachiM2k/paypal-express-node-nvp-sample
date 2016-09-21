@@ -1,0 +1,57 @@
+<h1>Paypal Express NVP Sample</h1>
+
+<h2>
+    Payment Summary
+</h2>
+
+<h3>
+    Received PayPal Data:
+</h3>
+{{#paypalData}}
+<dl>
+    <dt>E-Mail</dt><dd>{{sellerpaypalaccountid}}</dd>
+    <dt>Name</dt><dd>{{shiptoname}}</dd>
+    <dt>Street</dt><dd>{{shiptostreet}}</dd>
+    <dt>ZIP</dt><dd>{{shiptozip}}</dd>
+    <dt>City</dt><dd>{{shiptocity}}</dd>
+    <dt>State</dt><dd>{{shiptostate}}</dd>
+    <dt>Country</dt><dd>{{shiptocountryname}}</dd>
+    <dt>Country Code</dt><dd>{{shiptocountrycode}}</dd>
+    <dt>Address Status</dt><dd>{{addressstatus}}</dd>
+</dl>
+{{/paypalData}}
+
+<h3>
+    Current cart:
+</h3>
+<table style="border: 1px solid black; width: 100%;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#cart}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{amount}}</td>
+        </tr>
+        {{/cart}}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Total Sum:</td>
+            <td>{{total}}</td>
+        </tr>
+    </tfoot>
+</table>
+
+<p>
+    <a href="/payment-complete/?token={{token}}&payerID={{payerID}}" style="background: #FBC159; border: 1px solid black; color: #0C3882; padding: 10px; margin: 10px 0;">
+        Complete Payment
+    </a>
+    <a href="/" style="background: #FBC159; border: 1px solid black; color: #0C3882; padding: 10px; margin: 10px 10px;">
+        Abort
+    </a>
+</p>
